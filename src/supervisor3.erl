@@ -115,7 +115,7 @@
                   | {'intrinsic', delay()}.
 -type shutdown() :: 'brutal_kill' | timeout().
 -type worker()   :: 'worker' | 'supervisor'.
--type sup_name() :: {'local', Name :: atom()} | {'global', Name :: atom()}.
+-type sup_name() :: {'local', Name :: atom()} | {'global', Name :: atom()} | | {'global', integer() | atom(), Name :: atom()}.
 -type sup_ref()  :: (Name :: atom())
                   | {Name :: atom(), Node :: node()}
                   | {'global', Name :: atom()}
@@ -243,7 +243,7 @@ behaviour_info(_Other) ->
 
 -spec start_link(Module, Args) -> startlink_ret() when
       Module :: module(),
-      Args :: term().
+      Args ::  list(any()).
 
 -endif.
 start_link(Mod, Args) ->
